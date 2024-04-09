@@ -11,6 +11,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Save state
+      run: echo "{name}={value}" >> $GITHUB_STATE
+
+    - name: Set output
+      run: echo "{name}={value}" >> $GITHUB_OUTPUT
+
     # 현재 시간을 YYYYMMDDHHMMSS 형식으로 설정
     - name: Get current time
       run: echo "CURRENT_TIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
