@@ -3,13 +3,13 @@ name: Build and Push Docker image
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     # 현재 시간을 YYYYMMDDHHMMSS 형식으로 설정
     - name: Get current time
@@ -27,4 +27,4 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: syohdev/nodejs-github-action:${{ env.CURRENT_TIME }}
+        tags: ghd6840/nodejs-github-action:${{ env.CURRENT_TIME }}
